@@ -1,0 +1,38 @@
+# Arquivo de configuracao da pipeline do Gitlab
+stages:
+  - build
+  - test
+  - deploy
+  
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  IMAGE_NAME: "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+  IMAGE_LATEST: "$CI_REGISTRY_IMAGE:latest"
+
+cache:
+  paths:
+    - .m2/repository/
+
+docker-build:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - echo "docker build"
+    - docker build --pull --tag "$IMAGE_NAME" --tag "$CI_REGISTRY_IMAGE:latest" .
+    - docker push $IMAGE_NAME
+    - docker push $IMAGE_LATEST
+
+test:
+  image: maven:3.8.3-openjdk-11-slim
+  stage: test
+  script:
+    - mvn test
+
+deploy:
+  stage: deploy
+  script:
+    - echo "executando deploy..."

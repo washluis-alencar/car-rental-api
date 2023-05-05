@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "c89a9df9-d014-45e8-88cd-90b3430cf63c",
+		"name": "api-locacao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "realizar-locacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"Cliente teste\",\r\n    \"dataInicial\": \"2022-05-12T03:49:10\",\r\n    \"dataFinal\": \"2022-05-17T03:49:10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basePath}}/locacoes",
+					"host": [
+						"{{basePath}}"
+					],
+					"path": [
+						"locacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calcular-dias-restantes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idLocacao\": \"628259c91e80f3163c77ccfc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basePath}}/locacoes/dias-restantes",
+					"host": [
+						"{{basePath}}"
+					],
+					"path": [
+						"locacoes",
+						"dias-restantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar-locacao",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"TEste\",\r\n    \"dataInicial\": \"2022-05-12T03:49:10\",\r\n    \"dataFinal\": \"2022-05-17T03:49:10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basePath}}/locacoes/628259101e80f3163c77ccfb",
+					"host": [
+						"{{basePath}}"
+					],
+					"path": [
+						"locacoes",
+						"628259101e80f3163c77ccfb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar-locacao-abertas-cliente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"TEste\",\r\n    \"dataInicial\": \"2022-05-12T03:49:10\",\r\n    \"dataFinal\": \"2022-05-17T03:49:10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basePath}}/locacoes/aberta?cliente=CLIENTE TESTE",
+					"host": [
+						"{{basePath}}"
+					],
+					"path": [
+						"locacoes",
+						"aberta"
+					],
+					"query": [
+						{
+							"key": "cliente",
+							"value": "CLIENTE TESTE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelar-locacao",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"TEste\",\r\n    \"dataInicial\": \"2022-05-12T03:49:10\",\r\n    \"dataFinal\": \"2022-05-17T03:49:10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basePath}}/locacoes/cancelamento/628259101e80f3163c77ccfb",
+					"host": [
+						"{{basePath}}"
+					],
+					"path": [
+						"locacoes",
+						"cancelamento",
+						"628259101e80f3163c77ccfb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "encerrar-locacao",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeCliente\": \"TEste\",\r\n    \"dataInicial\": \"2022-05-12T03:49:10\",\r\n    \"dataFinal\": \"2022-05-17T03:49:10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basePath}}/locacoes/encerramento/628259c91e80f3163c77ccfc",
+					"host": [
+						"{{basePath}}"
+					],
+					"path": [
+						"locacoes",
+						"encerramento",
+						"628259c91e80f3163c77ccfc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
