@@ -1,7 +1,6 @@
-# Api Locadora de Carros
+# Car Rental API
 
-`Componente para gerenciar locacao de carros.
-`
+`Component to manage car rentals.`
 
 ## Build
 
@@ -9,25 +8,19 @@
 docker-compose build
 ```
 
-## Execução
+## Execution
 
 ```bash
 docker-compose up -d
 ```
 
-## Catálogo de serviços
-Link para visualizar o catálogo de serviços da API
+## Service Catalog
+Link to view the API service catalog
 ```
 http://localhost:8080/v3/api-docs
 http://localhost:8080/swagger-ui
 ```
-Collection Postman
+Postman Collection
 ```
 files/api-locacao.postman_collection.json
-```
-
-## Listener para mensagem de cálculo de dias restantes da locação
-Repositório do componente
-```
-https://gitlab.com/wluisalencar/locadora-carro-listener
 ```
